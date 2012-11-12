@@ -99,6 +99,7 @@ chmod 755 ./bootstrap.sh
 ./bootstrap.sh
 chmod 755 configure
 ./configure --prefix=${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/build \
+            --with-thriftpath=${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/build \
             PY_PREFIX=${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/build \
             RUBY_PREFIX=${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/build
 make install

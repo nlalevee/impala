@@ -4,36 +4,17 @@ Cloudera Impala is a distributed query execution engine that runs against data s
 
 The rest of this README describes how to build Cloudera Impala from this repository. Further documentation about Cloudera Impala can be found [here](https://ccp.cloudera.com/display/IMPALA10BETADOC/Cloudera+Impala+1.0+Beta+Documentation). 
 
-# Building Cloudera Impala on CentOS 6.2
+# Building Cloudera Impala
 
-## Prerequisites
+## Prerequisites on CentOS 6.2
 
-### Installing prerequisite packages
+### Packages
 
     sudo yum install boost-test boost-program-options libevent-devel automake libtool flex bison gcc-c++ openssl-devel \
     make cmake doxygen.x86_64 glib-devel boost-devel python-devel bzip2-devel svn libevent-devel cyrus-sasl-devel \
     wget git unzip
 
-### Install Thrift 0.7.0
-
-_Note: we will be upgrading to a more recent Thrift in the near future, but for now Thrift 0.7.0 is the only release we have tested against_
-
-    wget http://archive.apache.org/dist/thrift/0.7.0/thrift-0.7.0.tar.gz
-    tar xvzf thrift-0.7.0.tar.gz
-    cd thrift-0.7.0
-    chmod 755 configure
-    ./configure --with-pic
-    make
-    sudo make install
-    cd contrib/fb303
-    chmod 755 ./bootstrap.sh
-    ./bootstrap.sh
-    chmod 755 configure
-    ./configure
-    make
-    sudo make install
-
-### Install LLVM
+### LLVM
 
     wget http://llvm.org/releases/3.0/llvm-3.0.tar.gz
     tar xvzf llvm-3.0.tar.gz
@@ -45,6 +26,13 @@ _Note: we will be upgrading to a more recent Thrift in the near future, but for 
     ./configure --with-pic
     make
     sudo make install
+
+## Prerequisites on Ubuntu 12.04 and newer
+
+    sudo apt-get install unzip build-essential autoconf git libboost1.48-all-dev libevent-dev libbz2-dev cmake \
+                         llvm-3.0 clang doxygen
+
+## Other prerequisites
 
 ### Install the JDK
 
@@ -86,7 +74,10 @@ and you should see at least:
 
 Confirm your environment looks correct:
 
-    (11:11:21@desktop) ~/src/cloudera/impala-public (master) $ env | grep "IMPALA.*VERSION"
+    env | grep "IMPALA.*VERSION"
+
+The output should be:
+
     IMPALA_CYRUS_SASL_VERSION=2.1.23
     IMPALA_HBASE_VERSION=0.92.1-cdh4.1.0
     IMPALA_SNAPPY_VERSION=1.0.5
@@ -106,7 +97,17 @@ Confirm your environment looks correct:
 
 ### Build Impala
 
+On CentOS:
+
     cd ${IMPALA_HOME}
+    ./build_public.sh -build_thirdparty
+
+On Ubuntu:
+
+    cd ${IMPALA_HOME}
+    CMAKE_ARGS="-DLLVM_CONFIG_EXECUTABLE=`which llvm-config-3.0` -DLLVM_OPT_EXECUTABLE=`which opt-3.0` -DCLANG_EXECUTABLE=`which clang` -DLLVM_CLANG_EXECUTABLE=`which clang`" \
+    THRIFT_HOME=${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/build \
+    THRIFT_CONTRIB_DIR=${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/build \
     ./build_public.sh -build_thirdparty
 
 ## Wrapping up

@@ -18,7 +18,7 @@ The rest of this README describes how to build Cloudera Impala from this reposit
 
     wget http://llvm.org/releases/3.0/llvm-3.0.tar.gz
     tar xvzf llvm-3.0.tar.gz
-    cd llvm.3.0.src/tools
+    cd llvm-3.0.src/tools
     svn co http://llvm.org/svn/llvm-project/cfe/tags/RELEASE_30/final/ clang
     cd ../projects
     svn co http://llvm.org/svn/llvm-project/compiler-rt/tags/RELEASE_30/final/ compiler-rt

@@ -54,7 +54,7 @@ echo "******************************"
 # build common and backend
 cd $IMPALA_HOME
 ${IMPALA_HOME}/bin/gen_build_version.py
-cmake -DCMAKE_BUILD_TYPE=$TARGET_BUILD_TYPE $CMAKE_ARGS .
+cmake -DCMAKE_BUILD_TYPE=$TARGET_BUILD_TYPE ${CMAKE_ARGS:-} .
 cd $IMPALA_HOME/common/function-registry
 make
 cd $IMPALA_HOME/common/thrift

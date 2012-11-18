@@ -123,11 +123,12 @@ if [ ${BUILD_THIRDPARTY} -eq 1 -o ! -f ${IMPALA_HOME}/thirdparty/thirdparty/thri
 	echo "********************************"
 	cd ${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}
 	chmod 755 configure
-	./configure --with-pic \
+	./configure --with-pic --without-php \
             --prefix=${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/build \
             PY_PREFIX=${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/build \
-            RUBY_PREFIX=${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/build
-	DESTDIR=${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/build make install
+            RUBY_PREFIX=${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/build \
+			JAVA_PREFIX=${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/build
+	make install
 	cd contrib/fb303
 	chmod 755 ./bootstrap.sh
 	./bootstrap.sh

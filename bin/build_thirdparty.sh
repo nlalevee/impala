@@ -89,7 +89,7 @@ if [ ${BUILD_THIRDPARTY} -eq 1 -o ! -f ${IMPALA_HOME}/thirdparty/gtest-${IMPALA_
 fi
 
 # Build Snappy
-if [ "${DISTRIB_ID}" -neq "Ubuntu" ] && [ ${BUILD_THIRDPARTY} -eq 1 -o ! -f ${IMPALA_HOME}/thirdparty/snappy-${IMPALA_SNAPPY_VERSION}/.libs/libsnappy.so ]; then
+if [ ${BUILD_THIRDPARTY} -eq 1 -o ! -f ${IMPALA_HOME}/thirdparty/snappy-${IMPALA_SNAPPY_VERSION}/.libs/libsnappy.so ]; then
 	echo "********************************"
 	echo " Building Snappy "
 	echo "********************************"
@@ -101,7 +101,7 @@ fi
 # Build Sasl
 # Disable everything except those protocols needed -- currently just Kerberos.
 # Sasl does not have a --with-pic configuration.
-if [ "${DISTRIB_ID}" -neq "Ubuntu" ] && [ ${BUILD_THIRDPARTY} -eq 1 -o ! -f ${IMPALA_HOME}/thirdparty/cyrus-sasl-${IMPALA_CYRUS_SASL_VERSION}/lib/.libs/libsasl2.so ]; then
+if [ ${BUILD_THIRDPARTY} -eq 1 -o ! -f ${IMPALA_HOME}/thirdparty/cyrus-sasl-${IMPALA_CYRUS_SASL_VERSION}/lib/.libs/libsasl2.so ]; then
 	echo "********************************"
 	echo " Building Sasl "
 	echo "********************************"

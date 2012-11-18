@@ -93,8 +93,8 @@ The output should be:
 
 ### Download required third-party packages
 
-    cd thirdparty
-    ./download_thirdparty.sh
+    cd ${IMPALA_HOME}
+	./thirdparty/download_thirdparty.sh
 
 ### Build Impala
 

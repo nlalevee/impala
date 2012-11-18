@@ -93,7 +93,7 @@ chmod 755 configure
             --prefix=${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/build \
             PY_PREFIX=${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/build \
             RUBY_PREFIX=${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/build
-make install
+DESTDIR=${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/build make install
 cd contrib/fb303
 chmod 755 ./bootstrap.sh
 ./bootstrap.sh

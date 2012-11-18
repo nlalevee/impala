@@ -27,17 +27,6 @@ The rest of this README describes how to build Cloudera Impala from this reposit
     make
     sudo make install
 
-## Prerequisites on Ubuntu 12.04 and newer
-
-    sudo apt-get install unzip build-essential autoconf git libboost1.48-all-dev libevent-dev libbz2-dev cmake \
-                         llvm-3.0 clang doxygen
-
-## Other prerequisites
-
-### Install the JDK
-
-Make sure that the Oracle Java Development Kit 6 is installed (not OpenJDK), and that `JAVA_HOME` is set in your environment.
-
 ### Install Maven
 
     wget http://www.fightrice.com/mirrors/apache/maven/maven-3/3.0.4/binaries/apache-maven-3.0.4-bin.tar.gz
@@ -60,6 +49,17 @@ Confirm by running:
 and you should see at least:
 
     Apache Maven 3.0.4...
+
+## Prerequisites on Ubuntu 12.04 and newer
+
+    sudo apt-get install unzip build-essential autoconf git libboost1.48-all-dev libevent-dev libbz2-dev cmake \
+                         llvm-3.0 clang doxygen maven
+
+## Other prerequisites
+
+### Install the JDK
+
+Make sure that the Oracle Java Development Kit 6 is installed (not OpenJDK), and that `JAVA_HOME` is set in your environment.
 
 ## Building Cloudera Impala
 

@@ -117,7 +117,7 @@ if [ "${DISTRIB_ID}" -neq "Ubuntu" ] && [ ${BUILD_THIRDPARTY} -eq 1 -o ! -f ${IM
 fi
 
 # Build Thrift
-if [ ${BUILD_THIRDPARTY} -eq 1 -o ! -f ${IMPALA_HOME}/thirdparty/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/lib/cpp/.libs/libthrift.so ]; then
+if [ ${BUILD_THIRDPARTY} -eq 1 -o ! -f ${IMPALA_HOME}/thirdparty/thrift-${IMPALA_THRIFT_VERSION}/lib/cpp/.libs/libthrift.so ]; then
 	echo "********************************"
 	echo " Building Thrift "
 	echo "********************************"

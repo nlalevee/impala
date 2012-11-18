@@ -181,6 +181,7 @@ set (IMPALA_LINK_LIBS
   thriftstatic
   thriftnbstatic
   ${SASL_LIBRARY}
+  -lsasl2
   ThriftSaslTransport
   event # event required for thriftnbstatic
   ImpalaThrift
@@ -194,6 +195,7 @@ set (IMPALA_LINK_LIBS
   Webserver
   GlobalFlags
   ${SNAPPY_STATIC_LIB}
+  -lsnappy
   ${Boost_LIBRARIES}
   ${LLVM_MODULE_LIBS}
   glogstatic

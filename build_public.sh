@@ -34,19 +34,9 @@ do
     ;;
   esac
 done
+export BUILD_THIRDPARTY
 
-if [ ! -f ${IMPALA_HOME}/thirdparty/gflags-${IMPALA_GFLAGS_VERSION}/.libs/libgflags.so.2 ]
-then
-  BUILD_THIRDPARTY=1
-fi
-
-if [ ${BUILD_THIRDPARTY} -eq 1 ]
-then
-  echo "********************************"
-  echo " Building third-party libraries "
-  echo "********************************"
-  ${IMPALA_HOME}/bin/build_thirdparty.sh -noclean
-fi
+${IMPALA_HOME}/bin/build_thirdparty.sh -noclean
 
 echo "******************************"
 echo " Building Impala backend "

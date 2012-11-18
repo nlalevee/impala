@@ -46,6 +46,11 @@ if [ -z $IMPALA_HOME ]; then
     fi
 fi
 
+DISTRIB_ID="unknown"
+if [ -f /etc/lsb-release ]; then
+	. /etc/lsb-release
+fi
+export DISTRIB_ID
 
 export IMPALA_GFLAGS_VERSION=2.0
 export IMPALA_GPERFTOOLS_VERSION=2.0

@@ -52,7 +52,7 @@ and you should see at least:
 
 ## Prerequisites on Ubuntu 12.04 and newer
 
-    sudo apt-get install unzip build-essential autoconf git libboost-test-dev libboost-program-options-dev \
+    sudo apt-get install unzip build-essential autoconf automake git libboost-test-dev libboost-program-options-dev \
                          libboost-dev libboost-thread-dev libboost-regex-dev libevent-dev libbz2-dev cmake \
                          libssl-dev llvm-3.0 clang doxygen maven libsnappy-dev libsasl2-dev python-dev
 
